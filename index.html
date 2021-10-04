@@ -15,11 +15,14 @@
 </head>
 <body>
     <div class="main">
+        <div class="container">
         <h1>IP Tracker</h1>
-        <form class="searchMain">
+        <form class="searchMain" onsubmit="return false">
         <input type="text" placeholder="Search any IP Address" id="searchBar">
-        <button class=”searchbtn” type=”button” onclick="search()">></button>
+        <button id=”searchbtn” type=”button” onclick="search()"></button>
     </form>
+  </div>
+</div>
         <div class="results">
             <div class="resultContents">
                 

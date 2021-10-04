@@ -8,12 +8,15 @@ L.marker([51.5, -0.09]).addTo(map)
     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
     .openPopup();
 
-var apiKey = config.apiKey
 
+// >.> sorry
 
-function search() {
+ function search() {
     var letters = /^[\D\s]+$/; // Any non whitepsace character & Any non digit character Regex
     var input = document.getElementById('searchBar').value; // Search input
+    var baseurl = "http://api.ipstack.com/"
+    var apiKey = "?access_key=" + config.apiKey;
+    
 
     if (input.match(letters)) // see if it matches regex
     {
@@ -27,6 +30,11 @@ function search() {
     
     else // success :)
     {
+        fetch(baseurl + input + apiKey)
+        .then(response => response.json())
+        .then(json => console.log(json))
+
+        console.log(json)
         console.log(input);
         console.log("hello");
 
