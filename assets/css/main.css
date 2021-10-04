@@ -22,10 +22,24 @@ body #map {
   top: 30%;
   bottom: 0;
   width: 100vw;
+  z-index: 1;
 }
 
 body .container {
   padding-top: 5vh;
+}
+
+body .resultContents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 body h1 {
@@ -33,6 +47,23 @@ body h1 {
   font-family: 'Rubik', sans-serif;
   color: #fff;
   font-size: 6vh;
+}
+
+body h1.lower {
+  color: #969696;
+  text-align: unset;
+  font-size: 2vh;
+}
+
+body .results {
+  width: 75vw;
+  height: 20vh;
+  position: relative;
+  background: white;
+  z-index: 2;
+  margin: 0 auto;
+  margin-top: 5vh;
+  border-radius: 15px;
 }
 
 body .searchMain {

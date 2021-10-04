@@ -14,7 +14,7 @@
     <title>IP Tracker Website</title>
 </head>
 <body>
-    <div class="main">
+ <div class="main">
         <div class="container">
         <h1>IP Tracker</h1>
         <form class="searchMain" onsubmit="return false">
@@ -22,19 +22,30 @@
         <button id=”searchbtn” type=”button” onclick="search()"></button>
     </form>
   </div>
-</div>
-        <div class="results">
-            <div class="resultContents">
-                
-            </div>
-        </div>
+  <div class="results">
+    <div class="resultContents">
+    <div class="stat">
+        <h1 class="lower">IP Address</h1>
     </div>
+    <div class="stat">
+        <h1 class="lower">Location</h1>
+    </div>
+    <div class="stat">
+        <h1 class="lower">Type</h1>
+    </div>
+    <div class="stat">
+        <h1 class="lower">ISP</h1>
+    </div>
+</div>
+</div>
+ </div>
 
 
 
-<div id="map"></div>
-<script src='./assets/js/config.js'></script>
-<script type="text/javascript" src="./assets/js/shit.js"></script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="crossorigin=""></script>
+
+ <div id="map"></div>
+ <script src='./assets/js/config.js'></script>
+ <script type="text/javascript" src="./assets/js/shit.js"></script>
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="crossorigin=""></script>
 </body>
 </html>

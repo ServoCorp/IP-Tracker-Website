@@ -26,10 +26,16 @@ body {
         top: 30%;
         bottom: 0;
         width: 100vw;
+        z-index: 1;
     }
 
     .container {
         padding-top: 5vh;
+    }
+    .resultContents {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
     
     h1 {
@@ -38,6 +44,23 @@ body {
         color: #fff;
         font-size: 6vh;
     }
+    h1.lower {
+        color: $darkGrey;
+        text-align: unset;
+        font-size: 2vh;
+    }
+    
+    .results {
+        width: 75vw;
+        height: 20vh;
+        position: relative;
+        background: white;
+        z-index: 2;
+        margin: 0 auto;
+        margin-top: 5vh;
+        border-radius: 15px;
+    }
+
     .searchMain {
         text-align: center;
     }
