@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+body #map {
+  height: 180px;
+  width: 100vw;
+}
+
+body h1 {
+  text-align: center;
+}
+
+body .searchMain {
+  text-align: center;
+}
+/*# sourceMappingURL=main.css.map */
