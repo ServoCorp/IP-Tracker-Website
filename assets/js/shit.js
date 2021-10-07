@@ -101,13 +101,14 @@ function returnLatLong() {
     var data = new XMLHttpRequest();
     data.responseType = 'json';
     data.open("GET", 'http://ip-api.com/json/');
-    data.onload = function latLong() {
+    data.onload = function lat() {
+        
         //console.log(data.response)
 
-        //return data.response.lat; 
+        return data.response.lat; 
 };
 data.send();
-    //console.log(data.response.lat + data.response.long); 
-   // console.log(data.response)
+var oop = data.onload;
+   console.log(oop)
    // return latLong()
 }
