@@ -13,7 +13,7 @@
     crossorigin=""></script>
     <title>IP Tracker Website</title>
 </head>
-<body>
+<body onload="showStats()">
  <div class="main">
         <div class="container">
         <h1>IP Tracker</h1>
@@ -26,15 +26,19 @@
     <div class="resultContents">
     <div class="stat">
         <h1 class="lower">IP Address</h1>
+        <span class="ipAddr"></span>
     </div>
     <div class="stat">
         <h1 class="lower">Location</h1>
+        <span class="userLoc"></span>
     </div>
     <div class="stat">
-        <h1 class="lower">Type</h1>
+        <h1 class="lower">Timezone</h1>
+        <span class="userTime"></span>
     </div>
     <div class="stat">
         <h1 class="lower">ISP</h1>
+        <span class="userIsp"></span>
     </div>
 </div>
 </div>

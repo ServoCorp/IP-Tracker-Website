@@ -36,6 +36,7 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        padding-top: 1vh;
     }
     
     h1 {
@@ -45,7 +46,7 @@ body {
         font-size: 6vh;
     }
     h1.lower {
-        color: $darkGrey;
+        color: $darkerGrey;
         text-align: unset;
         font-size: 2vh;
     }
