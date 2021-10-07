@@ -104,10 +104,10 @@ function returnLatLong() {
     data.onload = function latLong() {
         //console.log(data.response)
 
-        return data.response.lat; 
+        //return data.response.lat; 
 };
 data.send();
     //console.log(data.response.lat + data.response.long); 
-    console.log(data.response)
-    return latLong()
+   // console.log(data.response)
+   // return latLong()
 }
