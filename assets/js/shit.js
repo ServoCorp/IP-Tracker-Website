@@ -24,14 +24,14 @@ L.marker([51.5, -0.09]).addTo(map)
     
     else if (input.length == 0) // see if empty
     {
-        window.alert("Please input an IP Address.")
+        window.alert("Please input an IP Address.");
     } 
     
     else // success :)
     {
         fetch(baseurl + input + apiKey)
         .then(response => response.json())
-        .then(json => console.log(json))
+        .then(json => console.log(json));
 
         console.log(input);
         console.log("hello");
@@ -41,10 +41,11 @@ L.marker([51.5, -0.09]).addTo(map)
 
 function showStats() {
     showIP();
-    getLocation()
-    getTimezone()
-    getISP()
-    returnLatLong()
+    getLocation();
+    getTimezone();
+    getISP();
+    //returnLatLong();
+    test();
 }
 
 function showIP() { //using another free third party api so it doesn't use all api calls when visitor loads page >.>
@@ -99,16 +100,11 @@ data.send();
 
 function returnLatLong() {
     var data = new XMLHttpRequest();
-    data.responseType = 'json';
     data.open("GET", 'http://ip-api.com/json/');
-    data.onload = function lat() {
-        
-        //console.log(data.response)
-
-        return data.response.lat; 
+    data.send();
+    return data;
 };
-data.send();
-var oop = data.onload;
-   console.log(oop)
-   // return latLong()
+
+function test() {
+    console.log(returnLatLong())
 }
