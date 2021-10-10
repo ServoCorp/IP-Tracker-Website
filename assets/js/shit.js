@@ -44,7 +44,7 @@ function showStats() {
     getLocation();
     getTimezone();
     getISP();
-    //returnLatLong();
+    returnLatLong();
     test();
 }
 
@@ -98,13 +98,21 @@ function getISP() {
 data.send();
 }
 
-function returnLatLong() {
-    var data = new XMLHttpRequest();
-    data.open("GET", 'http://ip-api.com/json/');
-    data.send();
-    return data;
+!async function returnLatLong() {
+    var uri = "http://ip-api.com/json/"
+
+    let data = fetch(uri)
+    .then((response) => response.json())
+    .then(data => {
+        // do some stuff
+        return data;
+    })
+    .catch(error => {
+        return error;
+    });
+
 };
 
 function test() {
-    console.log(returnLatLong())
+ returnLatLong();
 }
