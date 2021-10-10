@@ -1,6 +1,8 @@
-var map = L.map('map').setView([51.505, -0.09], 13);
+var map = L.map('map').setView([51.5, -0.09], 13);
 var baseurl = "http://api.ipstack.com/"
 var apiKey = "?access_key=" + config.apiKey;
+var span = document.getElementsByClassName("lower").innerText;
+var apiURL = "http://ip-api.com/json/"
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -45,7 +47,7 @@ function showStats() {
     getTimezone();
     getISP();
     returnLatLong();
-    test();
+    //test();
 }
 
 function showIP() { //using another free third party api so it doesn't use all api calls when visitor loads page >.>
@@ -98,21 +100,30 @@ function getISP() {
 data.send();
 }
 
-!async function returnLatLong() {
+//http://ip-api.com/json/
+
+
+function returnLatLong() { // working >.>
     var uri = "http://ip-api.com/json/"
 
-    let data = fetch(uri)
-    .then((response) => response.json())
-    .then(data => {
-        // do some stuff
-        return data;
+    return fetch(uri)
+    .then((response) => {
+        return response.json().then((data) => {
+            console.log(data.lat + "," + data.lon);
+            return data
+        })
     })
-    .catch(error => {
-        return error;
-    });
-
+    
 };
 
-function test() {
- returnLatLong();
+async function test() {
+//console.log(returnLatLong())
+
+var mySpan = document.getElementsByClassName("latLon")[0];
+var promise = await returnLatLong();
+var res = JSON.stringify(promise.lat + ", " + promise.lon)
+var resReplaced = res.replace(/\"/g, "")
+var txt = document.createTextNode(resReplaced);
+mySpan.appendChild(txt);
 }
+
