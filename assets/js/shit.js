@@ -4,6 +4,9 @@ var apiKey = "?access_key=" + config.apiKey;
 var span = document.getElementsByClassName("lower").innerText;
 var apiURL = "http://ip-api.com/json/"
 
+var cordX = getLat()
+var cordY = returnLong();
+
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
@@ -42,12 +45,16 @@ L.marker([51.5, -0.09]).addTo(map)
 }
 
 function showStats() {
+    //var latLng = L.latLng(cordX, cordY);
     showIP();
     getLocation();
     getTimezone();
     getISP();
-    returnLatLong();
-    //test();
+    //returnLat();
+    //returnLong();
+    test();
+    //console.log(latLng)
+    //map.setView(latLng, 13, { animation: true })
 }
 
 function showIP() { //using another free third party api so it doesn't use all api calls when visitor loads page >.>
@@ -103,13 +110,26 @@ data.send();
 //http://ip-api.com/json/
 
 
-function returnLatLong() { // working >.>
+function returnLat() { // working >.>
     var uri = "http://ip-api.com/json/"
 
     return fetch(uri)
     .then((response) => {
         return response.json().then((data) => {
-            console.log(data.lat + "," + data.lon);
+            //console.log(data.lat);
+            return data
+        })
+    })
+    
+};
+
+function returnLong() { // working >.>
+    var uri = "http://ip-api.com/json/"
+
+    return fetch(uri)
+    .then((response) => {
+        return response.json().then((data) => {
+            //console.log(data.lon);
             return data
         })
     })
@@ -120,10 +140,23 @@ async function test() {
 //console.log(returnLatLong())
 
 var mySpan = document.getElementsByClassName("latLon")[0];
-var promise = await returnLatLong();
-var res = JSON.stringify(promise.lat + ", " + promise.lon)
+var promise = await returnLat();
+res = JSON.stringify(promise.lat + ", " + promise.lon)
 var resReplaced = res.replace(/\"/g, "")
 var txt = document.createTextNode(resReplaced);
 mySpan.appendChild(txt);
+
+console.log(getLat())
 }
 
+async function getLat() {
+    var promise = await returnLat();
+    res = JSON.stringify(promise.lat)
+    //console.log(res)
+    return res;
+}
+async function getLong() {
+    var promise = await returnLat();
+    res = JSON.stringify(promise.lon)
+    return res;
+}
