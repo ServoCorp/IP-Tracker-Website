@@ -45,7 +45,7 @@ L.marker([51.5, -0.09]).addTo(map)
 }
 
 function showStats() {
-    //var latLng = cordX + ", " + cordY;
+    var latLng = cordX + ", " + cordY;
     showIP();
     getLocation();
     getTimezone();
@@ -54,7 +54,7 @@ function showStats() {
     //returnLong();
     test();
     //console.log(latLng)
-    console.log(cordX  + cordY);
+    console.log(cordX);
     //map.setView(latLng, 13, { animation: true })
 }
 
@@ -142,10 +142,10 @@ async function getLat() {
     var promise = await returnInfo();
     res = JSON.stringify(promise.lat)
     //console.log(promise.lat)
-    return promise.lat;
+    return res;
 }
 async function getLong() {
     var promise = await returnInfo();
     res = JSON.stringify(promise.lon)
-    return promise.lon;
+    return res;
 }
