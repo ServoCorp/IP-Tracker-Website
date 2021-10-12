@@ -5,7 +5,7 @@ var span = document.getElementsByClassName("lower").innerText;
 var apiURL = "http://ip-api.com/json/"
 
 var cordX = getLat()
-var cordY = returnLong();
+var cordY = getLong();
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -45,7 +45,7 @@ L.marker([51.5, -0.09]).addTo(map)
 }
 
 function showStats() {
-    //var latLng = L.latLng(cordX, cordY);
+    
     showIP();
     getLocation();
     getTimezone();
@@ -53,8 +53,8 @@ function showStats() {
     //returnLat();
     //returnLong();
     test();
-    //console.log(latLng)
-    //map.setView(latLng, 13, { animation: true })
+    console.log(latLng)
+    map.setView(latLng, 13, { animation: true })
 }
 
 function showIP() { //using another free third party api so it doesn't use all api calls when visitor loads page >.>
